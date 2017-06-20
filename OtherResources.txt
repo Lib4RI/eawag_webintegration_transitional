@@ -1,0 +1,2 @@
+EawagIconFont.woff https://www.eawag.ch/typo3temp/vhs-assets-css-1234520f348bef0cbda850daa2feb409.woff
+UnicodeData.txt ftp://ftp.unicode.org/Public/UNIDATA/UnicodeData.txt

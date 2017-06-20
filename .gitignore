@@ -1,0 +1,13 @@
+/*
+
+!/.gitignore
+!/README.md
+!/LICENSE.md
+!/doraeawagoaiexport.py
+!/oaimods2refworksxml.xsl
+!/refworksxml2html.xsl
+!/OtherResources.txt
+!/unicodedata2utf8str.sh
+!/analyserefids.sh
+!/reflist2idcorrespondence.sed
+!/runall.sh
