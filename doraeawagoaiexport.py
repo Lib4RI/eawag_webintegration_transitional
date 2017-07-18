@@ -27,6 +27,7 @@ from collections import OrderedDict
 from optparse import OptionParser
 from re import sub, search, findall
 from tempfile import NamedTemporaryFile
+from time import gmtime, strftime
 
 ### define the webserver name (will be accessed via ssh-publickey; behaviour for password authentication is untested) and the path
 
@@ -49,8 +50,11 @@ output3   = "RefList-DORA.xml" # N.B.: NEW FILE NAME
 
 STDIN   = sys.stdin  #'/dev/stdin'
 STDOUT  = sys.stdout #'/dev/stdout'
+
 testing = True
 testing = False # uncomment this if you are done testing
+
+timestamp = strftime('%Y%m%dT%H%M%SZ', gmtime())
 
 ### redirect all output to stderr
 
@@ -206,6 +210,8 @@ if verbose:
 f_dict = r_dict
 del f_dict["OAI-PMH"]["ListRecords"]
 f_dict["OAI-PMH"]["ListRecords"] = OrderedDict()
+f_dict["OAI-PMH"]["ListRecords"].update({'@timestamp' : timestamp}) # N.B.: This might not be conformal to the OAI XML specification
+f_dict["OAI-PMH"]["ListRecords"].update({'@count' : str(len(record_list))}) # N.B.: This might not be conformal to the OAI XML specification
 f_dict["OAI-PMH"]["ListRecords"].update({'record' : record_list})
 
 tmpfile_fd = NamedTemporaryFile(delete=False) # we need to keep the file since it is not opened correctly

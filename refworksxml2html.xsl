@@ -47,7 +47,7 @@
   </xsl:template>
 
   <xsl:template match="/refworks">
-    <tr><td colspan="3"><font size="+3"><strong><xsl:text>Reference List (</xsl:text><xsl:value-of select="count(./reference)"/><xsl:text>)</xsl:text></strong></font></td></tr>
+    <tr><td colspan="3"><font size="+3"><strong><xsl:text>Reference List (</xsl:text><xsl:value-of select="count(./reference)"/><xsl:if test="not(count(./reference) = ./@count)"><xsl:text>; expected</xsl:text><xsl:value-of select="./reference/@count"/></xsl:if><xsl:text>) from </xsl:text><xsl:value-of select="./@timestamp"/></strong></font></td></tr>
     <xsl:variable name="genres">
       <genre>Journal Article</genre>
       <genre>Newspaper or Magazine Article</genre>
